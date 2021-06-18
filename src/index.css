@@ -1,0 +1,556 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
+:root {
+  --primary: #efb6b2;
+  --secondary: #4e4e4e;
+  --error: #ff4a4a;
+}
+
+/* base styles & title */
+body {
+  font-family: "Noto Serif";
+  color: var(--secondary);
+  background: linear-gradient(45deg, #048fc2, #2c4279 65%);
+  min-height: calc(100vh - 60px);
+  color: whitesmoke !important;
+}
+
+.App {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.about {
+  background: linear-gradient(45deg, #048fc2, #2c4279 50%);
+  color: blanchedalmond;
+}
+
+.title h1 {
+  color: var(--primary);
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  font-weight: normal;
+}
+
+.title p {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.title h2 {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 3.6rem;
+}
+
+/* upload form styles */
+form {
+  margin: 30px auto 10px;
+  text-align: center;
+}
+
+label {
+  -webkit-transition: -webkit-transform 0.2s !important;
+  transition: -webkit-transform 0.2s !important;
+  transition: transform 0.2s !important;
+  transition: transform 0.2s, -webkit-transform 0.2s !important;
+  width: 60px;
+  height: 60px;
+  border: 1px solid blanchedalmond;
+  border-radius: 50%;
+  margin: 6px auto;
+  line-height: 25px;
+  color: blanchedalmond;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 0px;
+  margin-left: 11px;
+  -webkit-box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
+          box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
+}
+
+label input {
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+
+label:hover {
+  background: blanchedalmond;
+  color: white;
+  cursor: pointer;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  width: 100px;
+}
+
+.output {
+  height: 60px;
+  font-size: 0.8rem;
+}
+
+.error {
+  color: var(--error);
+}
+
+/* progress bar styles */
+.progress-bar {
+  height: 5px;
+  background: var(--primary);
+  margin-top: 20px;
+}
+
+/* image grid styles */
+.img-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.img-wrap {
+  height: 0;
+  padding: 50% 0;
+  /* padding controls height, will always be perfectly square regardless of width */
+  position: relative;
+  opacity: 0.8;
+}
+
+.img-wrap img {
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 150%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+  z-index: 1 !important;
+}
+
+.img-wrap img:hover {
+  -webkit-transform: scale(1.7);
+          transform: scale(1.7);
+  border-radius: 10px;
+  opacity: 1;
+  cursor: pointer;
+  z-index: 5 !important;
+}
+
+.galery-grid {
+  margin: 20px auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
+}
+
+.galery-grid .img-wrap img {
+  min-width: 100% !important;
+  min-height: 100% !important;
+  max-width: 150% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* modal styles */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.backdrop img {
+  display: block;
+  max-width: 60%;
+  max-height: 75%;
+  margin: 60px auto;
+  -webkit-box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
+          box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
+  border: 3px solid white;
+}
+
+.login {
+  -webkit-transition: -webkit-transform 0.2s !important;
+  transition: -webkit-transform 0.2s !important;
+  transition: transform 0.2s !important;
+  transition: transform 0.2s, -webkit-transform 0.2s !important;
+  background: -webkit-gradient(linear, left top, right top, from(#4cf2ca), color-stop(50%, #048fc2));
+  background: linear-gradient(90deg, #4cf2ca, #048fc2 50%);
+  color: white;
+  margin: 20px 10px;
+  font-weight: 700;
+  -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px rgba(0, 0, 0, 0.14), 0px 1px 14px rgba(0, 0, 0, 0.12);
+          box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px rgba(0, 0, 0, 0.14), 0px 1px 14px rgba(0, 0, 0, 0.12);
+}
+
+.login:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  background: white !important;
+  color: #4cf2ca !important;
+}
+
+h6 {
+  float: right;
+  margin-top: -40px !important;
+  font-size: 1.8rem !important;
+}
+
+.side-bar {
+  height: calc(100% -15px);
+  width: 62px;
+  float: left;
+  top: 15px;
+  left: 15px;
+  bottom: 0;
+  position: absolute;
+}
+
+.side-bar-icon {
+  color: #048fc2;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+  background: whitesmoke;
+  height: 50px;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px rgba(0, 0, 0, 0.14), 0px 1px 14px rgba(0, 0, 0, 0.12);
+          box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px rgba(0, 0, 0, 0.14), 0px 1px 14px rgba(0, 0, 0, 0.12);
+}
+
+.side-bar-icon svg {
+  font-size: 31px;
+  margin-left: 1px;
+}
+
+.side-bar-icon a {
+  color: #048fc2;
+}
+
+.side-bar-icon:hover, .side-bar-icon:active {
+  color: whitesmoke;
+  background: #048fc2;
+  cursor: pointer;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.side-bar-icon:hover a, .side-bar-icon:active a {
+  color: whitesmoke;
+}
+
+.icon {
+  color: white;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  margin-left: 15px;
+  font-size: 18px;
+}
+
+.icon:hover {
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4);
+  cursor: pointer;
+}
+
+.delete-icon {
+  position: fixed;
+  bottom: 90px;
+  right: 330px;
+  color: #fc4c4e;
+}
+
+.replace-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 500px;
+  color: #ffe872;
+}
+
+.replace-icon span {
+  position: absolute;
+  left: -105px;
+  top: 24px;
+}
+
+.like-icon {
+  position: fixed;
+  bottom: 90px;
+  left: 550px;
+  color: lightskyblue;
+}
+
+.favorite-icon {
+  position: fixed;
+  bottom: 90px;
+  left: 320px;
+  color: #f2b8c6;
+}
+
+.likes {
+  left: 750px;
+  position: fixed;
+  bottom: 93px;
+  font-size: 18px;
+  color: lime;
+}
+
+/* Reset */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+
+.artboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 4rem;
+  height: 100%;
+  position: relative;
+}
+
+@media (max-width: 37.5em) {
+  .artboard {
+    padding: 1rem;
+  }
+}
+
+.card {
+  -webkit-box-flex: initial;
+      -ms-flex: initial;
+          flex: initial;
+  position: relative;
+  height: 44rem;
+  width: 48rem;
+  -webkit-perspective: 200rem;
+          perspective: 200rem;
+  margin: 2rem;
+  border-radius: 10px !important;
+}
+
+.card__side {
+  height: 44rem;
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  /* We don't want to see the back part of the element. */
+  backface-visibility: hidden;
+  /* We don't want to see the back part of the element. */
+  border-radius: 3px;
+  overflow: hidden;
+  /* The image is overflowing the parent. */
+  -webkit-box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.15);
+}
+
+.card__side--front {
+  border-radius: 10px;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(30, 11, 54, 0.65)), to(rgba(202, 55, 130, 0.7)));
+  background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(202, 55, 130, 0.7));
+}
+
+.card__side--back {
+  border-radius: 10px;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(30, 11, 54, 0.65)), to(rgba(202, 55, 130, 0.7)));
+  background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(202, 55, 130, 0.7));
+}
+
+.card:hover .card__side--back {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+}
+
+.card:hover .card__side--front {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.card__theme {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: 54%;
+  width: 90%;
+  text-align: center;
+}
+
+.card__theme-box {
+  color: #fff;
+  margin-bottom: 8rem;
+}
+
+.card__subject {
+  font-family: "Inconsolata", monospace;
+  letter-spacing: 0.8rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.card__title {
+  font-family: "VT323", monospace;
+  text-transform: uppercase;
+  font-size: 6rem;
+  font-weight: 100;
+}
+
+.card__cover {
+  border-radius: 10px;
+  position: relative;
+  background-size: cover;
+  height: 14rem;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-image: -webkit-gradient(linear, left bottom, right top, from(rgba(30, 11, 54, 0.65)), to(rgba(202, 55, 130, 0.65))), url(https://cdn.spacetelescope.org/archives/images/screen/heic0406a.jpg);
+  background-image: linear-gradient(to top right, rgba(30, 11, 54, 0.65), rgba(202, 55, 130, 0.65)), url(https://cdn.spacetelescope.org/archives/images/screen/heic0406a.jpg);
+}
+
+.card__heading {
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 75%;
+}
+
+.card__heading-span {
+  font-family: "VT323", monospace;
+  font-size: 4.2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding: 1rem 1.5rem;
+  color: #fff;
+}
+
+.card__details {
+  font-family: "Inconsolata", monospace;
+  padding: 4rem 2rem;
+}
+
+.card__details ul {
+  list-style: none;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.card__details ul li {
+  text-align: center;
+  font-size: 1.8rem;
+  padding: 1rem;
+}
+
+.card__details ul li:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+@media only screen and (max-width: 37.5em), only screen and (hover: none) {
+  .card {
+    height: auto;
+    border-radius: 3px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.15);
+            box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.15);
+  }
+  .card__side {
+    height: auto;
+    position: relative;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .card__side--front {
+    -webkit-clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+  }
+  .card__side--back {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+  }
+  .card:hover .card__side--front {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+  }
+  .card__details {
+    padding: 3rem 2rem;
+  }
+  .card__theme {
+    position: relative;
+    top: 0;
+    left: 0;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+    width: 100%;
+    padding: 5rem 4rem 1.5rem 4rem;
+    text-align: right;
+  }
+  .card__theme-box {
+    margin-bottom: 1.5rem;
+  }
+  .card__title {
+    font-size: 4rem;
+  }
+}
+/*# sourceMappingURL=index.css.map */
